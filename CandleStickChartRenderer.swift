@@ -1,5 +1,13 @@
 //
 //  CandleStickChartRenderer.swift
+//  
+//
+//  Created by PUŁA Albert on 30/01/2025.
+//
+
+
+//
+//  CandleStickChartRenderer.swift
 //  Charts
 //
 //  Copyright 2015 Daniel Cohen Gindi & Philipp Jahoda
@@ -70,10 +78,11 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
         context.setLineWidth(dataSet.shadowWidth)
         
         guard let chart = dataProvider as? CandleStickChartView else { return }
+        
         let entryCount = dataSet.entryCount
         let availableWidth = chart.viewPortHandler.contentWidth
+
         let bodyWidth = (availableWidth / CGFloat(entryCount)) * 18
-        
         for j in _xBounds
         {
             // get the entry
@@ -157,9 +166,11 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer
                 // calculate the body
                 
                 _bodyRect.origin.x = CGFloat(xPos) - bodyWidth / 2.0
-                _bodyRect.origin.y = CGFloat(close * phaseY)
-                _bodyRect.size.width = bodyWidth//(CGFloat(xPos) + 0.5 - barSpace) - _bodyRect.origin.x
-                _bodyRect.size.height = CGFloat(open * phaseY) - _bodyRect.origin.y
+                    _bodyRect.origin.y = CGFloat(close * phaseY)
+                    _bodyRect.size.width = bodyWidth//(CGFloat(xPos) + 0.5 - barSpace) - _bodyRect.origin.x
+                    _bodyRect.size.height = CGFloat(open * phaseY) - _bodyRect.origin.y
+                
+            
                 
                 trans.rectValueToPixel(&_bodyRect)
                 
